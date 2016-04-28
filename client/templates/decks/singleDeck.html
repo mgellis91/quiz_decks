@@ -1,0 +1,112 @@
+<template name="singleDeck">
+  <h1>{{title}}</h1>
+  <p>{{description}}</p>
+  <div class="deck-actions">
+    {{#if ownsDeck}}
+      <button class="btn btn-default" data-toggle="modal" data-target="#newCardModal">Create New Card</button>
+      <button class="btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete Deck</button>
+    {{/if}}
+      <a href="/launch/{{_id}}"><button class="btn btn-default">Launch Deck</button></a>
+  </div>
+  <div class="posts">
+    {{#each questions}}
+      <div class="post" {{attributes}}>
+            <div class="post-content">
+              <p><b>Question : </b>{{this.question}}</p>
+              <p><b>Answer : </b>{{this.answer}}</p>
+              {{#if ownsDeck}}
+                <a id="editCard" href="#" data-toggle="modal" data-target="#editCardModal">Edit Card</a>
+                <a id="deleteCard" href="#" data-toggle="modal" data-target="#deleteCardModal">Delete Card</a>
+              {{/if}}
+          </div>
+      </div>
+    {{/each}}
+  </div>
+
+    <!-- New Card Modal -->
+    <div class="modal fade" id="newCardModal" tabindex="-1" role="dialog" aria-labelledby="newCardModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="newCardModalLabel">New Question Card</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="new-question-card">
+                        <div class="form-group">
+                            <label for="editQuestionText">Question</label>
+                            <textarea class="form-control" id="newQuestionText" placeholder="new question"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editAnswerText">Answer</label>
+                            <textarea class="form-control" id="newAnswerText" placeholder="new answer"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default">create new card</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Card Modal -->
+    <div class="modal fade" id="editCardModal" tabindex="-1" role="dialog" aria-labelledby="editCardModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="newCardModalLabel">Edit Question Card</h4>
+          </div>
+          <div class="modal-body">
+            <form id="edit-question-card">
+              <div class="form-group">
+               <label for="editQuestionText">Question</label>
+               <textarea class="form-control" id="editQuestionText" placeholder="new question"></textarea>
+             </div>
+             <div class="form-group">
+              <label for="editAnswerText">Answer</label>
+              <textarea class="form-control" id="editAnswerText" placeholder="new answer"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Apply Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Deck Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  Delete Deck?
+              </div>
+              <div class="modal-body">
+                  Do you really want to delete this deck? Once deleted you will not be able to recover this deck.
+              </div>
+              <div class="modal-footer">
+                  <button id="cancel-delete-deck" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button id="confirm-delete-deck" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Delete Question Modal -->
+    <div class="modal fade" id="deleteCardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Delete Question Card?
+                </div>
+                <div class="modal-body">
+                    Do you really want to delete this question card? Once deleted you will not be able to recover this card.
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel-delete-card" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="confirm-delete-card" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

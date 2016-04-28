@@ -1,0 +1,15 @@
+<template name="deckEntry">
+  <div class="post clearfix">
+
+    <div class="post-content">
+      <h3><a href="/singleDeck/{{this._id}}">{{title}}</a></h3>
+      <h5>Created : {{dateSubmitted}} by <a href="#">{{author}}</a></h5>
+      <p>{{description}}</p>
+      <p>{{pluralize questionCount "card"}}</p>
+      <p>
+        {{pluralize votes "like"}}
+      </p>
+      <a href="#" class="upvote btn btn-default {{upvotedClass}}"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+    </div>
+  </div>
+</template>

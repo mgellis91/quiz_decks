@@ -1,0 +1,30 @@
+<template name="header">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{pathFor 'home'}}">Quiz Decks</a>
+      </div>
+      <div class="" id="navigation">
+        <ul class="nav navbar-nav">
+          <li class="{{activeRouteClass 'home' 'newDecks'}}">
+            <a href="{{pathFor 'newDecks'}}">Latest</a>
+          </li>
+          <li class="{{activeRouteClass  'bestDecks'}}">
+            <a href="{{pathFor 'bestDecks'}}">Top Rated</a>
+          </li>
+          <li class="{{activeRouteClass 'myDecks'}}">
+            <a href="{{pathFor 'myDecks'}}">My Decks</a>
+          </li>
+          {{#if currentUser}}
+            <li class="{{activeRouteClass 'newDeck'}}">
+              <a href="{{pathFor 'newDeck'}}">New Deck</a>
+            </li>
+          {{/if}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>
