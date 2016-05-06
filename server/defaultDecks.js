@@ -46,7 +46,7 @@ if (Decks.find().count() === 0) {
         answer: "constant item of data with only one specific value"
       },
     ],
-    submitted: new Date(now * 3600 * 1000 + 1),
+    submitted: new Date(),
     upvoters: [], votes: 0
   });
 
@@ -86,7 +86,7 @@ if (Decks.find().count() === 0) {
         answer: "Any unpaired card used to determine the outcome if 2 or more players have identical paired cards"
       }
     ],
-    submitted: new Date(now * 3600 * 1000 + 1),
+    submitted: new Date(),
     upvoters: [], votes: 0
   });
 
@@ -130,7 +130,7 @@ if (Decks.find().count() === 0) {
             answer: "An atom or molecule with a net electric charge due to the loss or gain of one or more electrons"
           }
         ],
-        submitted: new Date(now * 3600 * 1000 + 1),
+        submitted: new Date(),
         upvoters: [], votes: 0
       });
 
@@ -174,7 +174,7 @@ if (Decks.find().count() === 0) {
               answer: "a selection of items in which order is not important"
             }
           ],
-          submitted: new Date(now * 3600 * 1000 + 1),
+          submitted: new Date(),
           upvoters: [], votes: 0
      });
 }
